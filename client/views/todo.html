@@ -1,0 +1,71 @@
+<h1>Todo items</h1>
+<hr>
+<form name="todoForm" novalidate ng-submit="addTodo()">
+  <div class="form-group"
+      ng-class="{'has-error': todoForm.content.$invalid
+        && todoForm.content.$dirty}">
+    <input type="text" class="form-control focus" name="content"
+        placeholder="Content" autocomplete="off" required
+        ng-model="newTodo.content">
+    <span class="has-error control-label" ng-show="
+        todoForm.content.$invalid && todoForm.content.$dirty">
+      Content is required.
+    </span>
+  </div>
+  <button class="btn btn-default" ng-disabled="todoForm.$invalid">Add</button>
+</form>
+<hr>
+<div class="list-group">
+  <a class="list-group-item" ng-repeat="todo in todos">{{todo.content}}&nbsp;
+    <i class="glyphicon glyphicon-remove pull-right"
+        ng-click="removeTodo(todo)"></i></a>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Q1. Implement Angular bootstrap alert while adding todo item</h3>
+  </div>
+  <ul class="list-group">
+    <li class="list-group-item">1. Install and Include UI Bootstrap components for Angular JS by bower <a href="https://angular-ui.github.io/bootstrap/#!#top" target="_blank">UI Bootstrap</a></li>
+    <li class="list-group-item">3. Alert color should be green.</li>
+    <li class="list-group-item">4. Alert message should be "Item added successfully!".</li>
+    <li class="list-group-item">5. Alert should be dismiss in 5 seconds if not closed by user.</li>
+  </ul>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Q2. Implement Angular bootstrap alert while deleting todo item</h3>
+  </div>
+  <ul class="list-group">
+    <li class="list-group-item">1. Install and Include UI Bootstrap components for Angular JS by bower <a href="https://angular-ui.github.io/bootstrap/#!#top" target="_blank">UI Bootstrap</a></li>
+    <li class="list-group-item">3. Alert color should be red.</li>
+    <li class="list-group-item">4. Alert message should be "Item removed successfully!".</li>
+    <li class="list-group-item">5. Alert should be dismiss in 5 seconds if not closed by user.</li>
+  </ul>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Q3. Create list page for todo item and link them with list</h3>
+  </div>
+  <ul class="list-group">
+    <li class="list-group-item">1. Create new page todolist</a></li>
+    <li class="list-group-item">3. Add route with 1 optional param "id".</li>
+    <li class="list-group-item">4. Link todo items with the todolist page.</li>
+    <li class="list-group-item">5. Display {id} and {content} on the list page.</li>
+    <li class="list-group-item">5. Hint: {id} can be an index value of the list.</li>
+  </ul>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Q4. Connect with mongo db </h3>
+  </div>
+  <ul class="list-group">
+    <li class="list-group-item">1. datasourse file is inside server directory.</a></li>
+    <li class="list-group-item">3. Mongo URI: "mongodb://localhost:27017/onlinetest".</li>
+    <li class="list-group-item">4. Todo item should add in database</li>
+    <li class="list-group-item">5. Delete should remove from database.</li>
+  </ul>
+</div>
