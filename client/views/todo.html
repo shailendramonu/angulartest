@@ -1,3 +1,6 @@
+<uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)" dismiss-on-timeout="5000">
+  {{alert.msg}}
+</uib-alert>
 <h1>Todo items</h1>
 <hr>
 <form name="todoForm" novalidate ng-submit="addTodo()">
@@ -16,9 +19,12 @@
 </form>
 <hr>
 <div class="list-group">
-  <a class="list-group-item" ng-repeat="todo in todos">{{todo.content}}&nbsp;
-    <i class="glyphicon glyphicon-remove pull-right"
-        ng-click="removeTodo(todo)"></i></a>
+  <div ng-repeat="todo in todos" style="display: flex;">
+    <a class="list-group-item" style="width: 100%;" ui-sref="list({ id: todo.id })">{{todo.content}}&nbsp;
+    </a>
+    <i class="glyphicon glyphicon-remove pull-right" style="padding: 12px"
+      ng-click="removeTodo(todo)"></i>
+  </div>
 </div>
 
 <div class="panel panel-default">

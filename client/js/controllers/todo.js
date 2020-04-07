@@ -8,6 +8,15 @@ angular
   .controller('TodoController', ['$scope', '$state', 'Todo', function($scope,
       $state, Todo) {
     $scope.todos = [];
+    $scope.alerts = [];
+
+    function addAlert(type, msg) {
+        $scope.alerts.push({type, msg});
+    };
+
+    $scope.closeAlert = function(index) {
+        $scope.alerts.splice(index, 1);
+    };
     function getTodos() {
       Todo
         .find()
@@ -26,6 +35,7 @@ angular
           $scope.newTodo = '';
           $scope.todoForm.content.$setPristine();
           $('.focus').focus();
+          addAlert('success', 'Item added successfully!');
           getTodos();
         });
     };
@@ -35,6 +45,7 @@ angular
         .deleteById(item)
         .$promise
         .then(function() {
+          addAlert('danger', 'Item removed successfully!');
           getTodos();
         });
     };

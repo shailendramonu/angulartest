@@ -6,7 +6,8 @@
 angular
   .module('app', [
     'lbServices',
-    'ui.router'
+    'ui.router',
+    'ui.bootstrap'
   ])
   .config(['$stateProvider', '$urlRouterProvider', function($stateProvider,
       $urlRouterProvider) {
@@ -15,6 +16,11 @@ angular
         url: '',
         templateUrl: 'views/todo.html',
         controller: 'TodoController'
+      })
+      .state('list', {
+        url: '/list/:id',
+        templateUrl: 'views/todolist.html',
+        controller: 'TodoListController'
       });
 
     $urlRouterProvider.otherwise('todo');
