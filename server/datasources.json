@@ -1,6 +1,10 @@
 {
   "db": {
+    "host": "localhost",
+    "port": 27017,
+    "database": "onlinetest",
     "name": "db",
-    "connector": "memory"
+    "useNewUrlParser": true,
+    "connector": "mongodb"
   }
 }

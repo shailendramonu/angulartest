@@ -1,5 +1,7 @@
 <h1>Todo items</h1>
 <hr>
+<div uib-alert ng-repeat="alert in alerts" dismiss-on-timeout="5000"
+     ng-class="'alert-' + (alert.type || 'warning')" close="closeAlert($index)">{{alert.message}}</div>
 <form name="todoForm" novalidate ng-submit="addTodo()">
   <div class="form-group"
       ng-class="{'has-error': todoForm.content.$invalid
@@ -12,13 +14,14 @@
       Content is required.
     </span>
   </div>
-  <button class="btn btn-default" ng-disabled="todoForm.$invalid">Add</button>
+  <button class="btn btn-success" ng-disabled="todoForm.$invalid">Add</button>
 </form>
 <hr>
 <div class="list-group">
-  <a class="list-group-item" ng-repeat="todo in todos">{{todo.content}}&nbsp;
-    <i class="glyphicon glyphicon-remove pull-right"
-        ng-click="removeTodo(todo)"></i></a>
+  <div class="list-group-item" ng-repeat="todo in todos">
+    <span ui-sref="details({id: $index})" >{{todo.content}}</span>
+    <i class="glyphicon glyphicon-remove pull-right" ng-click="removeTodo(todo)"></i>
+  </div>
 </div>
 
 <div class="panel panel-default">

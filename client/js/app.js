@@ -6,15 +6,21 @@
 angular
   .module('app', [
     'lbServices',
-    'ui.router'
+    'ui.router',
+    'ui.bootstrap'
   ])
-  .config(['$stateProvider', '$urlRouterProvider', function($stateProvider,
-      $urlRouterProvider) {
+  .config(['$stateProvider', '$urlRouterProvider',
+    function($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('todo', {
-        url: '',
+        url: '/todo',
         templateUrl: 'views/todo.html',
         controller: 'TodoController'
+      })
+      .state("details", {
+        url: '/todo/:id',
+        templateUrl: 'views/todo-details.html',
+        controller: 'TodoDetailsController',
       });
 
     $urlRouterProvider.otherwise('todo');
